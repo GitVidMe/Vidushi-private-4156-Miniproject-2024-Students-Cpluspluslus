@@ -67,6 +67,10 @@ std::string Course::getCourseTimeSlot() const {
     return courseTimeSlot;
 }
 
+int Course::getEnrolledStudentCount() const {
+    return enrolledStudentCount; 
+}
+
 std::string Course::display() const {
     return "Instructor: " + instructorName + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;
 }
