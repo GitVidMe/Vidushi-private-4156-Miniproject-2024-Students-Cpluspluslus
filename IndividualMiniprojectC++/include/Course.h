@@ -18,7 +18,7 @@ class Course {
         std::string getInstructorName() const;
         std::string getCourseTimeSlot() const;
         std::string display() const;
-
+        int getEnrolledStudentCount() const;
 
         bool isCourseFull() const;
         bool enrollStudent();

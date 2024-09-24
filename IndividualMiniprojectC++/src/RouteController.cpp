@@ -139,6 +139,58 @@ void RouteController::retrieveCourses(const crow::request& req, crow::response& 
 }
 
 /**
+ * Attempts to enroll a student in the specified course of the specified dept.
+ *
+ * @param courseCode A {@code int} representing the course the user wishes
+ *                   to retrieve.
+ *
+ * @return           A crow::response object containing either the details of the
+ *                   course and an HTTP 200 response or, an appropriate message indicating the
+ *                   proper response.
+ */
+void RouteController::enrollStudentinCourse(const crow::request& req, crow::response& res) {
+    try {
+        auto deptCode = req.url_params.get("deptCode");
+        auto courseCode = std::stoi(req.url_params.get("courseCode"));
+
+        auto departmentMapping = myFileDatabase->getDepartmentMapping();
+        auto deptIt = departmentMapping.find(deptCode);
+
+        std::string response;
+
+        if (deptIt == departmentMapping.end()) {
+            res.code = 404;
+            response = "Department Not Found";
+            res.write(response);
+        } else {
+            auto coursesMapping = deptIt->second.getCourseSelection();
+            auto courseIt = coursesMapping.find(std::to_string(courseCode));
+
+            if (courseIt == coursesMapping.end()) {
+                res.code = 404;
+                response = "Course Not Found";
+                res.write(response);
+            } else {
+                if (courseIt->second->enrollStudent()) {
+                    res.code = 200;
+                    response = "Student enrolled successfully!!\nDepartment: " + deptIt->second.getDepartmentCode() + "\nCourse: " + std::to_string(courseCode) + "\nNumber of students enrolled: " + std::to_string(courseIt->second->getEnrolledStudentCount()); 
+                    res.write(response);
+                }
+                else {
+                    res.code = 406;
+                    response = "Course is full, no seats available";
+                    res.write(response);
+
+                }
+            }
+        }
+        res.end();
+    } catch (const std::exception& e) {
+        res = handleException(e);
+    }
+}
+
+/**
  * Displays whether the course has at minimum reached its enrollmentCapacity.
  *
  * @param deptCode   A {@code string} representing the department the user wishes
@@ -627,6 +679,11 @@ void RouteController::initRoutes(crow::App<>& app) {
     CROW_ROUTE(app, "/retrieveCourses")
         .methods(crow::HTTPMethod::GET)([this](const crow::request& req, crow::response& res) {
             retrieveCourses(req, res);
+        });
+
+    CROW_ROUTE(app, "/enrollStudent")
+        .methods(crow::HTTPMethod::GET)([this](const crow::request& req, crow::response& res) {
+            enrollStudentinCourse(req, res);
         });
 
     CROW_ROUTE(app, "/isCourseFull")

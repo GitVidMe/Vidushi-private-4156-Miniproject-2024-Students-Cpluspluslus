@@ -29,6 +29,7 @@ class RouteController {
         void setCourseLocation(const crow::request& req, crow::response& res);
         void setCourseInstructor(const crow::request& req, crow::response& res);
         void setCourseTime(const crow::request& req, crow::response& res);
+        void enrollStudentinCourse(const crow::request& req, crow::response& res);
         void dropStudentFromCourse(const crow::request&, crow::response& res);
 };
 
