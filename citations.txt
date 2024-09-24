@@ -1,2 +1,3 @@
 https://danielsieger.com/blog/2022/03/06/code-coverage-for-cpp.html
 https://vicrucann.github.io/tutorials/quick-cmake-doxygen/
+https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git, used to understand git commits and reverts.

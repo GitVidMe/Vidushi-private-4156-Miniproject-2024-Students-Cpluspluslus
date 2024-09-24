@@ -45,6 +45,8 @@ enable_testing()
 add_executable(IndividualMiniprojectTests
   test/sample.cpp
   test/CourseUnitTests.cpp
+  test/RouteControllerTests.cpp
+  src/RouteController.cpp
   src/Course.cpp
   src/Department.cpp
   src/MyFileDatabase.cpp
@@ -79,6 +81,7 @@ if (CPPLINT)
         src/Globals.cpp
         test/sample.cpp
         test/CourseUnitTests.cpp
+        test/RouteControllerTests.cpp
     )
 
     # Custom target to run cpplint
