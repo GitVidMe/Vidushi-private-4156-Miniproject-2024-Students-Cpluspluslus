@@ -68,7 +68,7 @@ std::string Course::getCourseTimeSlot() const {
 }
 
 std::string Course::display() const {
-    return "\nInstructor: " + instructorName + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;
+    return "Instructor: " + instructorName + "; Location: " + courseLocation + "; Time: " + courseTimeSlot;
 }
 
 void Course::reassignInstructor(const std::string& newInstructorName) {

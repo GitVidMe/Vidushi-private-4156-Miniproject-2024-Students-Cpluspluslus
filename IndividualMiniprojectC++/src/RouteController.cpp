@@ -98,6 +98,47 @@ void RouteController::retrieveCourse(const crow::request& req, crow::response& r
 }
 
 /**
+ * Displays the details of the requested courses to the user or displays the proper error
+ * message in response to the request.
+ *
+ * @param courseCode A {@code int} representing the course the user wishes
+ *                   to retrieve.
+ *
+ * @return           A crow::response object containing either the details of the
+ *                   course and an HTTP 200 response or, an appropriate message indicating the
+ *                   proper response.
+ */
+void RouteController::retrieveCourses(const crow::request& req, crow::response& res) {
+    try {
+        auto courseCode = std::stoi(req.url_params.get("courseCode"));
+
+        auto departmentMapping = myFileDatabase->getDepartmentMapping();
+        bool courseFound = false;
+
+        for (const auto& deptPair : departmentMapping) {
+            auto coursesMapping = deptPair.second.getCourseSelection();
+            auto courseIt = coursesMapping.find(std::to_string(courseCode));
+
+            if (courseIt != coursesMapping.end()) {
+                res.code = 200;
+                std::string response = "\nDepartment: " + deptPair.second.getDepartmentCode() + " Course Details: " + courseIt->second->display();
+                res.write(response);
+                courseFound = true;
+            }
+        }
+
+        if (!courseFound) {
+            res.code = 404;
+            res.write("Course Not Found");
+        }
+
+        res.end();
+    } catch (const std::exception& e) {
+        res = handleException(e);
+    }
+}
+
+/**
  * Displays whether the course has at minimum reached its enrollmentCapacity.
  *
  * @param deptCode   A {@code string} representing the department the user wishes
@@ -581,6 +622,11 @@ void RouteController::initRoutes(crow::App<>& app) {
     CROW_ROUTE(app, "/retrieveCourse")
         .methods(crow::HTTPMethod::GET)([this](const crow::request& req, crow::response& res) {
             retrieveCourse(req, res);
+        });
+
+    CROW_ROUTE(app, "/retrieveCourses")
+        .methods(crow::HTTPMethod::GET)([this](const crow::request& req, crow::response& res) {
+            retrieveCourses(req, res);
         });
 
     CROW_ROUTE(app, "/isCourseFull")

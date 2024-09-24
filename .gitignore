@@ -26,3 +26,5 @@ IndividualMiniproject
 testfile.bin
 IndividualMiniprojectC++/.DS_Store
 IndividualMiniprojectC++/Testing
+IndividualMiniprojectTests[1]_include.cmake
+IndividualMiniprojectTests[1]_tests.cmake

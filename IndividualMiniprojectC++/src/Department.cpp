@@ -41,6 +41,15 @@ std::string Department::getDepartmentChair() const {
 }
 
 /**
+ * Gets the department code.
+ *
+ * @return The code of the department.
+ */
+std::string Department::getDepartmentCode() const {
+    return deptCode;
+}
+
+/**
  * Gets the courses offered by the department.
  *
  * @return A HashMap containing courses offered by the department.
