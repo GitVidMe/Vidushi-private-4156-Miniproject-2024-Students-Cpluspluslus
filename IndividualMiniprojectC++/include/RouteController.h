@@ -16,6 +16,7 @@ class RouteController {
         void index(crow::response& res);
         void retrieveDepartment(const crow::request& req, crow::response& res);
         void retrieveCourse(const crow::request& req, crow::response& res);
+        void retrieveCourses(const crow::request& req, crow::response& res);
         void isCourseFull(const crow::request& req, crow::response& res);
         void getMajorCountFromDept(const crow::request& req, crow::response& res);
         void identifyDeptChair(const crow::request& req, crow::response& res);

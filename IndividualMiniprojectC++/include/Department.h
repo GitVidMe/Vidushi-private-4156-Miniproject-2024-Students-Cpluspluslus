@@ -24,6 +24,7 @@ class Department {
         void createCourse(std::string courseId, std::string instructorName, std::string courseLocation,
                         std::string courseTimeSlot, int capacity);
         std::string display() const;
+        std::string getDepartmentCode() const;
         std::string getDepartmentChair() const;
         std::map<std::string, std::shared_ptr<Course>> getCourseSelection() const;
 
