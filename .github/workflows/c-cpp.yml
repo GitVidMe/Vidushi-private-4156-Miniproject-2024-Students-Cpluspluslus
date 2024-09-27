@@ -15,6 +15,22 @@ jobs:
     - uses: actions/checkout@v4
     # - name: configure
     #   run: ./configure
+
+    - name: Install lcov
+      run: sudo apt install lcov
+    # Install dependencies (Boost, cpplint, lcov, genhtml)
+    - name: Install Boost, genhtml
+      run: |
+        sudo apt-get update
+    - name: Install cpplint
+      run: pip3 install cpplint
+
+    # Fetch Crow and Asio libraries using CMake's FetchContent (handled in CMakeLists.txt)
+    - name: Build with CMake
+      run: |
+        cd IndividualMiniprojectC++
+        cmake .
+        make
     - name: CMake
       run: |
            cd IndividualMiniprojectC++/
