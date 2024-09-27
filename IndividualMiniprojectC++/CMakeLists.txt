@@ -20,6 +20,8 @@ FetchContent_Declare(
 #   GIT_TAG asio-1-18-2
 )
 FetchContent_MakeAvailable(asio)
+message(STATUS "Asio source directory: ${asio_SOURCE_DIR}")
+# message(STATUS "Asio source directory include: ${asio_SOURCE_DIR}")
 
 set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${asio_SOURCE_DIR}/asio/include)
 set(CMAKE_CXX_STANDARD 14)
@@ -130,5 +132,3 @@ COMMAND ${LCOV} --directory . --capture --output-file coverage.info
 COMMAND ${GENHTML} --demangle-cpp -o coverage coverage.info
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-message(STATUS "Asio source directory: ${asio_SOURCE_DIR}")
-# message(STATUS "Asio source directory include: ${asio_SOURCE_DIR}")
