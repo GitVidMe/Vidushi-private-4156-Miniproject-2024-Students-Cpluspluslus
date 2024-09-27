@@ -28,3 +28,5 @@ IndividualMiniprojectC++/.DS_Store
 IndividualMiniprojectC++/Testing
 IndividualMiniprojectC++/IndividualMiniprojectTests[1]_include.cmake
 IndividualMiniprojectC++/IndividualMiniprojectTests[1]_tests.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake

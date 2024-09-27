@@ -4,18 +4,7 @@ project(IndividualMiniproject)
 
 include(FetchContent)
 
-# # Fetch Asio
-# FetchContent_Declare(
-#   asio
-# #   URL https://downloads.sourceforge.net/project/asio/asio/1.30.2%20%28Stable%29/asio-1.30.2.zip
-#   GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
-#   GIT_TAG asio-1-18-2
-# )
-# FetchContent_MakeAvailable(asio)
-# message(STATUS "Asio source directory .hpp: ${asio_SOURCE_DIR} and include directory: ${asio_INCLUDE_DIR}")
-
 # Fetch Crow
-
 FetchContent_Declare(
   crow
   GIT_REPOSITORY https://github.com/CrowCpp/Crow.git

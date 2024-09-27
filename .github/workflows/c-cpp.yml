@@ -13,9 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    # - name: configure
-    #   run: ./configure
-
     - name: Install lcov
       run: sudo apt install lcov
     # Install dependencies (Boost, cpplint, lcov, genhtml)
@@ -39,7 +36,3 @@ jobs:
       run: |
            cd IndividualMiniprojectC++
            make test
-    # - name: make check
-    #   run: make check
-    # - name: make distcheck
-    #   run: make distcheck
