@@ -16,7 +16,8 @@ jobs:
     # - name: configure
     #   run: ./configure
     - name: CMake
-      run: cmake ../../IndividualMiniprojectC++/
+      run: pwd
+           cmake ../../IndividualMiniprojectC++/
     - name: make
       run: cd ../../IndividualMiniprojectC++/
            make
