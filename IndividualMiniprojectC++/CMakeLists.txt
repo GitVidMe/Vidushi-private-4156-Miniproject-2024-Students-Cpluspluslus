@@ -23,7 +23,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(crow)
 
-set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${ASIO_SOURCE_DIR}/asio/include)
+set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${ASIO_SOURCE_DIR})
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
