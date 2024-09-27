@@ -15,8 +15,9 @@ FetchContent_MakeAvailable(crow)
 # Fetch Asio
 FetchContent_Declare(
   asio
-  GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
-  GIT_TAG asio-1-18-2
+  URL https://downloads.sourceforge.net/project/asio/asio/1.30.2%20%28Stable%29/asio-1.30.2.zip
+#   GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
+#   GIT_TAG asio-1-18-2
 )
 FetchContent_MakeAvailable(asio)
 
@@ -128,3 +129,6 @@ COMMAND ${LCOV} --directory . --capture --output-file coverage.info
 # generate report
 COMMAND ${GENHTML} --demangle-cpp -o coverage coverage.info
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+message(STATUS "Asio source directory: ${asio_SOURCE_DIR}")
+# message(STATUS "Asio source directory include: ${asio_SOURCE_DIR}")
