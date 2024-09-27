@@ -6,13 +6,13 @@ include(FetchContent)
 
 # Fetch Asio
 FetchContent_Declare(
-  ASIO
-  URL https://downloads.sourceforge.net/project/asio/asio/1.30.2%20%28Stable%29/asio-1.30.2.zip
-#   GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
-#   GIT_TAG asio-1-18-2
+  asio
+#   URL https://downloads.sourceforge.net/project/asio/asio/1.30.2%20%28Stable%29/asio-1.30.2.zip
+  GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
+  GIT_TAG asio-1-18-2
 )
-FetchContent_MakeAvailable(ASIO)
-message(STATUS "Asio source directory .hpp: ${ASIO_SOURCE_DIR}")
+FetchContent_MakeAvailable(asio)
+message(STATUS "Asio source directory .hpp: ${asio_SOURCE_DIR} and include directory: ${asio_INCLUDE_DIR}")
 # message(STATUS "Asio source directory include: ${asio_SOURCE_DIR}")
 
 # Fetch Crow
@@ -23,7 +23,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(crow)
 
-set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${ASIO_SOURCE_DIR})
+set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${asio_SOURCE_DIR})
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
