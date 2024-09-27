@@ -9,7 +9,7 @@
 #include <iostream>
 #include "../include/Course.h"
 
-#include "../external_libraries/Crow-1.2.0-Darwin/include/crow.h"
+#include "crow.h"
   
 
 class RouteControllerTests : public ::testing::Test {
