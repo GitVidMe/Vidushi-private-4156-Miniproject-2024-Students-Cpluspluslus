@@ -32,7 +32,9 @@ jobs:
            cd IndividualMiniprojectC++
            cmake .
     - name: Build with Make       
-      run: make
+      run: |
+           cd IndividualMiniprojectC++
+           make
     - name: Run Unit Tests
       run: |
            cd IndividualMiniprojectC++
