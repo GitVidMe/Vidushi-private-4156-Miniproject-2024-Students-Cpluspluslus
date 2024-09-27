@@ -19,26 +19,22 @@ jobs:
     - name: Install lcov
       run: sudo apt install lcov
     # Install dependencies (Boost, cpplint, lcov, genhtml)
-    - name: Install Boost, genhtml
+    - name: Install Boost, genhtml, asio
       run: |
         sudo apt-get update
+        sudo apt install libasio-dev
     - name: Install cpplint
       run: pip3 install cpplint
 
     # Fetch Crow and Asio libraries using CMake's FetchContent (handled in CMakeLists.txt)
     - name: Build with CMake
       run: |
-        cd IndividualMiniprojectC++
-        cmake .
-        make
-    - name: CMake
-      run: |
-           cd IndividualMiniprojectC++/
+           cd IndividualMiniprojectC++
            cmake .
-    - name: make
-      run: |
-           cd IndividualMiniprojectC++/
            make
+    - name: Run Unit Tests
+      run: cd IndividualMiniprojectC++
+           make test
     # - name: make check
     #   run: make check
     # - name: make distcheck
