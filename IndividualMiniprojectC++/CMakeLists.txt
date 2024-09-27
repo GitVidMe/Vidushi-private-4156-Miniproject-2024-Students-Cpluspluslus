@@ -12,7 +12,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(crow)
 
-set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include)
+# Fetch Asio
+FetchContent_Declare(
+  asio
+  GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
+  GIT_TAG asio-1-18-2
+)
+FetchContent_MakeAvailable(asio)
+
+set(INCLUDE_PATHS external_libraries/boost_1_85_0 external_libraries/Crow-1.2.0-Darwin/include external_libraries/asio-master/asio/include ${crow_SOURCE_DIR}/include ${asio_SOURCE_DIR}/asio/include)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
