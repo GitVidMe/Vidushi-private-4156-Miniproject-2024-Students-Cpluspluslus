@@ -11,8 +11,8 @@ FetchContent_Declare(
 #   GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
 #   GIT_TAG asio-1-18-2
 )
-FetchContent_MakeAvailable(asio)
-message(STATUS "Asio source directory .hpp: ${asio_SOURCE_DIR}")
+FetchContent_MakeAvailable(ASIO)
+message(STATUS "Asio source directory .hpp: ${ASIO_SOURCE_DIR}")
 # message(STATUS "Asio source directory include: ${asio_SOURCE_DIR}")
 
 # Fetch Crow
@@ -76,7 +76,7 @@ add_executable(IndividualMiniprojectTests
 target_include_directories(IndividualMiniprojectTests PRIVATE 
     ${INCLUDE_PATHS} 
     include
-    # /opt/homebrew/Cellar/asio/1.30.2/include
+    /opt/homebrew/Cellar/asio/1.30.2/include
 )
 
 target_link_libraries(IndividualMiniprojectTests PRIVATE 
