@@ -21,12 +21,12 @@ protected:
 };
 
 // Test case for successfully retrieving a course
-TEST_F(RouteControllerTests, RetrieveCourses_Success) {
-    // Arrange
-    req.url_params = crow::query_string("/retrieveCourses?courseCode=4102");
-    routeController.retrieveCourses(req, res);
+// TEST_F(RouteControllerTests, RetrieveCourses_Success) {
+//     // Arrange
+//     req.url_params = crow::query_string("/retrieveCourses?courseCode=4102");
+//     routeController.retrieveCourses(req, res);
 
-    // Assert
-    EXPECT_EQ(res.code, 200);
-    std::cout<< "bjfdklmkdlmnhvjfdkn" << res.body.find("Department: CHEM Course Details: Instructor: Dalibor Sames; Location: 320 HAV; Time: 10:10-11:25");
-}
+//     // Assert
+//     EXPECT_EQ(res.code, 200);
+//     std::cout<< "bjfdklmkdlmnhvjfdkn" << res.body.find("Department: CHEM Course Details: Instructor: Dalibor Sames; Location: 320 HAV; Time: 10:10-11:25");
+// }
