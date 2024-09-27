@@ -13,11 +13,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Install lcov
+      run: sudo apt install lcov
+    # Install dependencies (Boost, cpplint, lcov, genhtml)
+    - name: Install Boost, genhtml, asio
+      run: |
+        sudo apt-get update
+        sudo apt install libasio-dev
+    - name: Install cpplint
+      run: pip3 install cpplint
+
+    # Fetch Crow and Asio libraries using CMake's FetchContent (handled in CMakeLists.txt)
+    - name: Run CMake
+      run: |
+           cd IndividualMiniprojectC++
+           cmake .
+    - name: Build with Make       
+      run: |
+           cd IndividualMiniprojectC++
+           make
+    - name: Run Unit Tests
+      run: |
+           cd IndividualMiniprojectC++
+           make test

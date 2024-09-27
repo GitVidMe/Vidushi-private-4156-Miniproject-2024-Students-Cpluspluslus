@@ -7,7 +7,7 @@
 #include <string>
 #include <iostream>
 #include <exception>
-#include "../external_libraries/Crow-1.2.0-Darwin/include/crow.h"
+#include "crow.h"
 
 // Utility function to handle exceptions
 crow::response handleException(const std::exception& e) {
