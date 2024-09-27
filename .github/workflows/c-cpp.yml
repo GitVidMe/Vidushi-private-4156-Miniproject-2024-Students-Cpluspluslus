@@ -27,13 +27,15 @@ jobs:
       run: pip3 install cpplint
 
     # Fetch Crow and Asio libraries using CMake's FetchContent (handled in CMakeLists.txt)
-    - name: Build with CMake
+    - name: Run CMake
       run: |
            cd IndividualMiniprojectC++
            cmake .
-           make
+    - name: Build with Make       
+      run: make
     - name: Run Unit Tests
-      run: cd IndividualMiniprojectC++
+      run: |
+           cd IndividualMiniprojectC++
            make test
     # - name: make check
     #   run: make check
