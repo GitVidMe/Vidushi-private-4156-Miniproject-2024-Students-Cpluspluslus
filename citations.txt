@@ -1,3 +1,8 @@
-https://danielsieger.com/blog/2022/03/06/code-coverage-for-cpp.html
-https://vicrucann.github.io/tutorials/quick-cmake-doxygen/
-https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git, used to understand git commits and reverts.
+CITATIONS
+
+1. https://danielsieger.com/blog/2022/03/06/code-coverage-for-cpp.html
+2. https://vicrucann.github.io/tutorials/quick-cmake-doxygen/
+3. https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git, used to understand git commits and reverts
+4. https://github.com/resources/articles/devops/ci-cd, used to understand CI/CD pipelines.
+5. https://otee.dev/2021/12/31/deploying-to-google-cloud-compute.html, used to navigate deployment on google cloud compute engine. 
+6. https://github.com/cpplint/cpplint, used to install cpplint on VM server
